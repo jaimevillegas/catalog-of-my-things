@@ -19,5 +19,5 @@ class Item
     @archived = true
   end
 
-  can_be_archived?
+  private :can_be_archived?
 end
