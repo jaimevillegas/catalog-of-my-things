@@ -22,4 +22,7 @@ class Item
     @label = label
     label.add_item(self)
   end
+
+  private :can_be_archived?
+
 end
