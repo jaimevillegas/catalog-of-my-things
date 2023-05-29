@@ -41,6 +41,5 @@ describe Label do
       @label.add_item(@item)
       expect(@item.label).to be(@label)
     end
-
   end
 end

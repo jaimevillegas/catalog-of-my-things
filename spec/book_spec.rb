@@ -44,5 +44,4 @@ describe Book do
       expect(book.can_be_archived?).to eq(false)
     end
   end
-
 end
