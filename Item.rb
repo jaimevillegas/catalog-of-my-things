@@ -7,4 +7,22 @@ class Item
     @archived = archived
   end
 
+  def can_be_archived?(boolean)
+    if boolean == true
+      return true
+    else
+      return false
+    end
+  end
+  end
+
+  def move_to_archive
+    if can_be_archived? == true
+      @archived = true
+    else
+      return false
+    end
+    
+  end
+  private: can_be_archived?
 end
