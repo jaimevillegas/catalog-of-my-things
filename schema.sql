@@ -15,3 +15,17 @@ CREATE TABLE Genres(
 );
 
 alter table music_albums add constraint fk_genre_id foreign key (genre_id) references genres(id);
+
+CREATE TABLE book(
+  id INT NOT NULL AUTO_INCREMENT,
+  publisher VARCHAR(255),
+  cover_state VARCHAR(255),
+  FOREIGN KEY (id) REFERENCES item(id)
+);
+
+CREATE TABLE label(
+  id INT NOT NULL AUTO_INCREMENT,
+  title VARCHAR(255),
+  color VARCHAR(255),
+);
+
