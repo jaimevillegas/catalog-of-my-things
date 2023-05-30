@@ -16,4 +16,11 @@ class Game < Item
 
     super && (Date.today.year - Date.parse(@last_played_at.to_s).year > 2)
   end
+
+  def to_h
+    { multiplayer: @multiplayer,
+      last_played_at: @last_played_at
+    }
+  end
+  
 end
