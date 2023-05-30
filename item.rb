@@ -4,10 +4,10 @@ class Item
   attr_accessor :publish_date, :genre, :label, :author
   attr_reader :id, :archived
 
-  def initialize(publish_date, id = nil)
+  def initialize(publish_date, archived, id = nil)
     @id = id || rand(1..1000)
     @publish_date = publish_date
-    @archived = false
+    @archived = archived
   end
 
   def can_be_archived?
