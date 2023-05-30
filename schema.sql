@@ -46,4 +46,7 @@ CREATE TABLE author (
   first_name VARCHAR(100) NOT NULL,
   last_name VARCHAR(100) NOT NULL,
 )
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7447ec205f575a2e76ae4ac34ddb3fce66262f63
