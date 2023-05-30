@@ -28,5 +28,5 @@ class Item
     genre.add_item(self)
   end
 
-  private :can_be_archived?
+ private :can_be_archived?
 end
