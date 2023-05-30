@@ -29,11 +29,11 @@ describe Genre do
       genre.add_item(item)
       expect(genre.items[0]).to be(item)
     end
-    
+
     it 'should return nil' do
       expect(genre.add_item('item')).to be(nil)
     end
-    
+
     it 'should return the genre name' do
       genre.add_item(item)
       expect(item.genre.name).to eq('Pop')

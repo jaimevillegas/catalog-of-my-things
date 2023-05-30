@@ -1,7 +1,7 @@
 require_relative '../music_album'
 
 describe MusicAlbum do
-  let(:music_album) { MusicAlbum.new(1,'2023-01-01', true) }
+  let(:music_album) { MusicAlbum.new(1, '2023-01-01', true) }
 
   describe 'when initialize' do
     it 'should be a MusicAlbum class' do
@@ -26,14 +26,13 @@ describe MusicAlbum do
   end
 
   describe 'when call can_be_archived?' do
-    
     it 'should return true' do
       music_album.move_to_archive
       expect(music_album.archived).to be(false)
     end
 
     it 'should return false' do
-      music_album2 = MusicAlbum.new(1,'2000-01-01', true)
+      music_album2 = MusicAlbum.new(1, '2000-01-01', true)
       music_album2.move_to_archive
       expect(music_album2.archived).to be(true)
     end
