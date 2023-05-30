@@ -1,4 +1,4 @@
-	CREATE TABLE MusicAlbum(
+	CREATE TABLE music_albums(
   id SERIAL PRIMARY KEY,
   publish_date VARCHAR(255),
   on_spotify BOOLEAN,
