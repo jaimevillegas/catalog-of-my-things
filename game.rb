@@ -19,8 +19,6 @@ class Game < Item
 
   def to_h
     { multiplayer: @multiplayer,
-      last_played_at: @last_played_at
-    }
+      last_played_at: @last_played_at }
   end
-  
 end
