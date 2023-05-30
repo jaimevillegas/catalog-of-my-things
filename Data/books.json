@@ -16,9 +16,9 @@
     "archived": true
   },
   {
-    "id": 664,
-    "title": "My awesome Book",
-    "publisher": "Myself too",
+    "id": 657,
+    "title": "my title",
+    "publisher": "my publisher",
     "cover_state": "good",
     "publish_date": "2023-06-02",
     "archived": false

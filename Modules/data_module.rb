@@ -3,7 +3,7 @@ require_relative '../book'
 
 module DataModule
   def read_books
-    file = './Data/books.json'
+    file = './Data/books-data.json'
     data = []
 
     if File.exist?(file) && !File.empty?(file)
@@ -21,7 +21,39 @@ module DataModule
       data.push({ id: book.id, title: book.title, publisher: book.publisher,
                   cover_state: book.cover_state, publish_date: book.publish_date, archived: book.archived })
     end
-    File.write('./Data/books.json', JSON.pretty_generate(data))
+    File.write('./Data/books-data.json', JSON.pretty_generate(data))
+  end
+
+  def read_labels
+    file = './Data/labels.json'
+    data = []
+
+    if File.exist?(file) && !File.empty?(file)
+      JSON.parse(File.read(file)).each do |label|
+        data.push(Label.new(label['title'], label['color'], label['id']))
+      end
+    end
+    data
+  end
+
+  def write_labels(labels)
+    data = []
+    labels.each do |label|
+      data.push({ id: label.id, title: label.title, color: label.color })
+    end
+    File.write('./Data/labels.json', JSON.pretty_generate(data))
+  end
+
+  def read_authors
+    file = './Data/authors.json'
+    data = []
+
+    if File.exist?(file) && !File.empty?(file)
+      JSON.parse(File.read(file)).each do |author|
+        data.push(Author.new(author['first_name'], author['last_name'], author['id']))
+      end
+    end
+    data
   end
 
   def album_to_hash(album)
@@ -63,18 +95,17 @@ module DataModule
     end
   end
 
-def save_data(data, filename)
-  data_array = data.map(&:to_h) # Convert each object to a hash
-  File.write(filename, JSON.generate(data_array))
-end
-
-def load_data(filename)
-  if File.exist?(filename)
-    data = File.read(filename)
-    JSON.parse(data)
-  else
-    []
+  def save_data(data, filename)
+    data_array = data.map(&:to_h) # Convert each object to a hash
+    File.write(filename, JSON.generate(data_array))
   end
-end
 
+  def load_data(filename)
+    if File.exist?(filename)
+      data = File.read(filename)
+      JSON.parse(data)
+    else
+      []
+    end
+  end
 end

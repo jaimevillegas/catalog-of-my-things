@@ -8,9 +8,13 @@ module MainMethods
     if books.empty?
       puts 'No books found.'
     else
-      books.each do |book|
-        puts "#{book.id} - Title: #{book.title}, Publisher: #{book.author}, Cover: #{book.cover_state}"
+      puts
+      puts 'LIST OF BOOKS:'
+      books.each do |item|
+        puts "#{item.id} - Title: #{item.title}, Publisher: #{item.publisher}, Cover: #{item.cover_state}"
       end
+      puts '------------------'
+      puts
     end
   end
 
@@ -43,6 +47,14 @@ module MainMethods
     return puts 'There are no games available' if @games.empty?
 
     @games.each { |game| puts "Multiplayer: #{game['multiplayer']}, Last played at: #{game['last_played_at']}" }
+  end
+
+  def add_author
+    print 'First name: '
+    first_name = gets.chomp
+    print 'Last name: '
+    last_name = gets.chomp
+    Author.new(first_name, last_name)
   end
 
   # method to list authors
