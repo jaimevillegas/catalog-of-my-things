@@ -1,0 +1,6 @@
+require 'json'
+require_relative 'author'
+require_relative 'book'
+require_relative 'game'
+require_relative 'genre'
+require_relative 'label'
