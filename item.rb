@@ -23,5 +23,10 @@ class Item
     label.add_item(self)
   end
 
+  def add_genre=(genre)
+    @genre = genre
+    genre.add_item(self)
+  end
+
   private :can_be_archived?
 end
