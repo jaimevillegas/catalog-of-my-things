@@ -20,8 +20,8 @@ module MusicAndGenres
 
   # create a method for add a music album
   def add_music_album
-    puts 'Please enter the genre id'
-    genre_id = gets.chomp.to_i
+    puts 'Please enter the album id'
+    id = gets.chomp.to_i
     puts 'Please enter the pushlish date'
     publish_date = gets.chomp
     puts 'Please enter if the album is on spotify'
