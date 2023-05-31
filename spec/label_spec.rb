@@ -4,7 +4,7 @@ require_relative '../label'
 describe Label do
   before :each do
     @label = Label.new('Label', 'Red')
-    @item = Item.new('2010-01-01')
+    @item = Item.new('2010-01-01', true)
   end
 
   describe '#new' do

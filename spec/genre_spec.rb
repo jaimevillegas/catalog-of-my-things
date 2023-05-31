@@ -23,7 +23,7 @@ describe Genre do
   end
 
   describe 'when call add_item' do
-    let(:item) { Item.new('2020-01-01') }
+    let(:item) { Item.new('2020-01-01', false) }
 
     it 'should return the item' do
       genre.add_item(item)

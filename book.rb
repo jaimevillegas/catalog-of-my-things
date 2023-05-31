@@ -4,8 +4,10 @@ class Book < Item
   attr_accessor :title, :cover_state
   attr_reader :publisher
 
-  def initialize(_title, publisher, cover_state, *args)
+  def initialize(title, publisher, cover_state, *args)
     super(*args)
+    @publisher = publisher
+    @title = title
     @publisher = publisher
     @cover_state = cover_state
   end
