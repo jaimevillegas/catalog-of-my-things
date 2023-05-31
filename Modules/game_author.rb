@@ -15,11 +15,13 @@ class GameAuthor
 
     puts
     puts 'LIST OF GAMES:'
-    @games.each_with_index { |game, index| puts "#{index + 1} -Multiplayer: #{game['multiplayer']}, Last played at: #{game['last_played_at']}" }
-  
+    @games.each_with_index do |game, index|
+      puts "#{index + 1} -Multiplayer: #{game['multiplayer']}, Last played at: #{game['last_played_at']}"
+    end
+
     puts '------------------'
     puts
-    end
+  end
 
   # method to list authors
   def list_authors
@@ -28,8 +30,10 @@ class GameAuthor
 
     puts
     puts 'LIST OF AUTHORS:'
-    @author.each_with_index { |author, index| puts "#{index + 1} -First name: #{author['first_name']}, Last name: #{author['last_name']}" }
-  
+    @author.each_with_index do |author, index|
+      puts "#{index + 1} -First name: #{author['first_name']}, Last name: #{author['last_name']}"
+    end
+
     puts '------------------'
     puts
   end
