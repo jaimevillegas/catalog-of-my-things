@@ -22,7 +22,7 @@ class App
     @books = read_books
     @labels = read_labels
     @genres = load_genres
-    @music = load_music_albums
+    @music_albums = load_music_albums
   end
 
   def welcome
@@ -35,7 +35,7 @@ class App
       when 1
         list_all_books(@books)
       when 2
-        list_all_music_albums(@music_albums)
+        list_music_albums(@music_albums)
       when 3
         list_all_games(@games)
       when 4
@@ -59,6 +59,7 @@ class App
   def exit_program
     puts 'Goodbye!'
     write_books(@books)
+    store_music_albums
     exit
   end
 end

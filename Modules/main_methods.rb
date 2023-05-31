@@ -81,12 +81,11 @@ module MainMethods
   end
 
   # create a method for list all the music albums
-  def list_music_albums
-    return 'No music albums found' if @music_albums.empty?
+  def list_music_albums(music_albums)
+    puts 'No music albums found' if music_albums.empty?
 
     @music_albums.each do |music_album|
-      puts "ID: #{music_album.id}, Publish Date: #{music_album.publish_date}"
-      puts "On Spotify: #{music_album.on_spotify}, Archived: #{music_album.archived}"
+      puts "Publish date: #{music_album.publish_date}, On spotify: #{music_album.on_spotify}"
     end
   end
 
@@ -101,13 +100,18 @@ module MainMethods
 
   # create a method for add a music album
   def add_music_album
-    puts 'Please enter the album id'
-    id = gets.chomp.to_i
-    puts 'Please enter the pushlish date'
+    puts 'Please enter the pushlish date[YYYY-MM-DD]'
     publish_date = gets.chomp
-    puts 'Please enter if the album is on spotify'
-    on_spotify = gets.chomp
-    music_album = MusicAlbum.new(id, publish_date, on_spotify)
-    @music_albums << music_album
+    puts 'Please enter if the album is on spotify [y/n]'
+    on_spotify1 = gets.chomp
+    case on_spotify1
+    when 'y'
+      on_spotify = true
+    when 'n'
+      on_spotify = false
+    else
+      puts 'Please enter a valid option'
+    end
+    MusicAlbum.new(0, publish_date, on_spotify)
   end
 end
