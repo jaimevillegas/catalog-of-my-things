@@ -23,18 +23,23 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 OOP School Library <a name="about-project"></a>
+# 📖 Catalog of my things <a name="about-project"></a>
 
-**OOP School Library** is a Ruby program, using OOP Principles. The application lets you:
+**Catalog of my things** is a Ruby program for the ruby capstone group project, applying OOP Principles. The application lets you:
 
-- Add a person
-- Add a Student
-- Add a teacher
-- Add a classroom
+- List all Books
+- List all Music Albums 
+- List all Movies
+- List all Games
+- List all Genres
+- List all Labels
+- List all Authors
+- List all Sources
 - Add a Book
-- Add a Rental
+- Add a Music Album
+- Add a Game
 
-With all these functionallities, the user will be able to Add data and save records of who borroewd a given book and when
+The data of the user will be preserved .
 ## 🛠 Built With <a name="built-with"></a>
 
 
@@ -59,7 +64,7 @@ With all these functionallities, the user will be able to Add data and save reco
 <details>
 <summary>Database</summary>
   <ul>
-    <li></li>
+    <li>PostgreSQL</li>
   </ul>
 </details>
 
@@ -67,8 +72,8 @@ With all these functionallities, the user will be able to Add data and save reco
 
 ### Key Features <a name="key-features"></a>
 
-- Add Students, teachers or books
-- Save records of who borrowed a given book and when
+- Add diferent items
+- Save the information
 - List data
 
 
@@ -78,7 +83,7 @@ With all these functionallities, the user will be able to Add data and save reco
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-Currently, We does not have a live version of the project, we will let you know when is available ASAP!
+You can see the live demo [here](link of the video)
 
 <p align="right"><a href="#readme-top">👆</a></p>
 
@@ -94,34 +99,29 @@ In order to run this project you need to:
 
 - Install [Git](https://git-scm.com/)
 - Install [Node](https://nodejs.org/en/)
-- Install a code editor, I suggest [VsCode](https://code.visualstudio.com/)
+- Install a code editor, We suggest [VsCode](https://code.visualstudio.com/)
 
 ### Setup
 
 Clone the repo into your local machine:
 
 ```bash
-git clone git@github.com:jaimevillegas/vet-clinic-database.git
+git clone https://github.com/jaimevillegas/catalog-of-my-things.git
 ```
 
-Install the dependencies using npm:
+Install the dependencies using bundler:
 ```bash
-npm install
+bundle install
 ```
 
 ### Usage
 
-To start the development server run
+To start you can open your terminal and in the folder write
 ```bash
-npm run start
+ruby main.rb
 ```
-- this command will start the development server on `localhost:8080` address
 
-To create and optimized production build run
-```bash
-npm run build
-```
-- this command will create a bunduled chunks of code inside `dist/` folder
+
 
 
 <p align="right"><a href="#readme-top">👆</a></p>
@@ -136,6 +136,19 @@ npm run build
 - Twitter: [@jaimevillegazz](https://twitter.com/JaimeVillegazz)
 - LinkedIn: [Villegas0296](https://www.linkedin.com/in/villegas0296/)
 - Medium: [@jaimevillegas296](https://medium.com/@jaimevillegas296)
+
+
+👤 **Alejandro**
+
+- GitHub: [Alejandro](https://github.com/Alejandro-Bernal-M)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/alejandro-bernal-marin)
+
+👤 **Johnie**
+
+- GitHub: [@github](https://github.com/johnie261)
+- Twitter: [@twitter](https://twitter.com/njorogejohnie)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/muturijohn/)
+
 
 <p align="right"><a href="#readme-top">👆</a></p>
 

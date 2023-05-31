@@ -72,27 +72,31 @@ module DataModule
   end
 
   def store_music_albums
-    File.write('data/albums.json', @music_albums.map { |album| album_to_hash(album) }.to_json)
+    File.write('./data/albums.json', @music_albums.map { |album| album_to_hash(album) }.to_json)
   end
 
   def store_genres
-    File.write('data/genres.json', @genres.map { |genre| genre_to_hash(genre) }.to_json)
+    File.write('./data/genres.json', @genres.map { |genre| genre_to_hash(genre) }.to_json)
   end
 
   def load_music_albums
-    return unless File.exist?('data/albums.json') && File.size?('albums.json')
-
-    JSON.parse(File.read('data/albums.json')).each do |album|
-      @music_albums << MusicAlbum.new(album['id'], album['publish_date'], album['on_spotify'])
+    data = []
+    if File.exist?('./data/albums.json') && !File.empty?('./data/albums.json')
+      JSON.parse(File.read('./data/albums.json')).each do |album|
+        data.push(MusicAlbum.new(album['id'], album['publish_date'], album['on_spotify']))
+      end
     end
+    data
   end
 
   def load_genres
-    return unless File.exist?('data/genres.json') && File.size?('genres.json')
-
-    JSON.parse(File.read('data/genres.json')).each do |genre|
-      @genres << Genre.new(genre['id'], genre['name'])
+    data = []
+    if File.exist?('./data/genres.json') && !File.empty?('./data/genres.json')
+      JSON.parse(File.read('./data/genres.json')).each do |genre|
+        data.push(Genre.new(genre['name'], genre['id']))
+      end
     end
+    data
   end
 
   def save_data(data, filename)

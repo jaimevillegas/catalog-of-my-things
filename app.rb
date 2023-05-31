@@ -14,7 +14,7 @@ class App
   def initialize
     @options = [
       'List all books', 'List all Music Albums', 'List all Games', 'List all Genres',
-      'List all Labels', 'List all Authors', 'Add a Book',
+      'List all Labels', 'List all Authors', 'Add a genre', 'Add a Book',
       'Add a Music Album', 'Add a Game', 'Exit'
     ]
 
@@ -22,7 +22,7 @@ class App
     @books = read_books
     @labels = read_labels
     @genres = load_genres
-    @music = load_music_albums
+    @music_albums = load_music_albums
   end
 
   def welcome
@@ -30,35 +30,59 @@ class App
       puts 'What would you like to do?'
       @options.each_with_index { |option, index| puts "#{index + 1}. #{option}" }
       print 'Enter your choice: '
-      choice = gets.chomp.to_i
-      case choice
-      when 1
-        list_all_books(@books)
-      when 2
-        list_all_music_albums(@music_albums)
-      when 3
-        list_all_games(@games)
-      when 4
-        list_all_genres(@genres)
-      when 5
-        list_all_labels(@labels)
-      when 6
-        list_all_authors(@authors)
-      when 7
-        @books.push(add_book)
-      when 8
-        @music_albums.push(add_music_album)
-      when 9
-        @games.push(add_game)
-      when 10
-        exit_program
-      end
+      @choice = gets.chomp.to_i
+      options(@choice)
+    end
+  end
+
+  def choice1(choice)
+    case choice
+    when 1
+      list_all_books(@books)
+    when 2
+      list_music_albums(@music_albums)
+    when 3
+      list_all_games(@games)
+    when 4
+      list_genres(@genres)
+    when 5
+      list_all_labels(@labels)
+    when 6
+      list_all_authors(@authors)
+    end
+  end
+
+  def choice2(choice)
+    case choice
+    when 7
+      @genres.push(add_genre)
+    when 8
+      @books.push(add_book)
+    when 9
+      @music_albums.push(add_music_album)
+    when 10
+      @games.push(add_game)
+    when 11
+      exit_program
+    end
+  end
+
+  def options(choice)
+    case choice
+    when 1..6
+      choice1(choice)
+    when 7..11
+      choice2(choice)
+    else
+      puts 'Invalid choice'
     end
   end
 
   def exit_program
     puts 'Goodbye!'
     write_books(@books)
+    store_music_albums
+    store_genres
     exit
   end
 end
