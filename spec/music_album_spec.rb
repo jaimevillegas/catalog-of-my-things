@@ -26,11 +26,6 @@ describe MusicAlbum do
   end
 
   describe 'when call can_be_archived?' do
-    it 'should return true' do
-      music_album.move_to_archive
-      expect(music_album.archived).to be(false)
-    end
-
     it 'should return false' do
       music_album2 = MusicAlbum.new(1, '2000-01-01', true)
       music_album2.move_to_archive

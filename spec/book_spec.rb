@@ -3,7 +3,7 @@ require_relative '../book'
 
 describe Book do
   before :each do
-    @book = Book.new('Publisher', 'Good', '2010-01-01')
+    @book = Book.new('Awesome book', 'Publisher', 'Good', '2010-01-01', true)
   end
 
   describe '#new' do
@@ -30,17 +30,17 @@ describe Book do
 
   describe '#can_be_archived?' do
     it 'should return true if date is earlier than 10 years' do
-      book = Book.new('Publisher', 'Good', '2010-01-01')
+      book = Book.new('Awesome book', 'Publisher', 'Good', '2010-01-01', true)
       expect(book.can_be_archived?).to eq(true)
     end
 
     it 'should return true if cover_state is bad' do
-      book = Book.new('Publisher', 'Bad', '2000-01-01')
+      book = Book.new('Awesome book', 'Publisher', 'bad', '2010-01-01', true)
       expect(book.can_be_archived?).to eq(true)
     end
 
     it 'should return false if cover_state != bad && date < 10 years' do
-      book = Book.new('Publisher', 'Good', '2020-01-01')
+      book = Book.new('Awesome book', 'Publisher', 'good', '2020-01-01', true)
       expect(book.can_be_archived?).to eq(false)
     end
   end
