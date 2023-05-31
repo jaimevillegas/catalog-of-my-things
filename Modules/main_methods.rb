@@ -84,9 +84,11 @@ module MainMethods
   def list_music_albums(music_albums)
     puts 'No music albums found' if music_albums.empty?
 
-    @music_albums.each do |music_album|
-      puts "Publish date: #{music_album.publish_date}, On spotify: #{music_album.on_spotify}"
+    puts 'LIST OF MUSIC ALBUMS:'
+    @music_albums.each_with_index do |music_album, index|
+      puts "#{index + 1} -Publish date: #{music_album.publish_date}, On spotify: #{music_album.on_spotify}"
     end
+    puts '------------------'
   end
 
   # create a method for list all the genres

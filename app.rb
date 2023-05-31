@@ -30,29 +30,49 @@ class App
       puts 'What would you like to do?'
       @options.each_with_index { |option, index| puts "#{index + 1}. #{option}" }
       print 'Enter your choice: '
-      choice = gets.chomp.to_i
-      case choice
-      when 1
-        list_all_books(@books)
-      when 2
-        list_music_albums(@music_albums)
-      when 3
-        list_all_games(@games)
-      when 4
-        list_all_genres(@genres)
-      when 5
-        list_all_labels(@labels)
-      when 6
-        list_all_authors(@authors)
-      when 7
-        @books.push(add_book)
-      when 8
-        @music_albums.push(add_music_album)
-      when 9
-        @games.push(add_game)
-      when 10
-        exit_program
-      end
+      @choice = gets.chomp.to_i
+      options(@choice)
+    end
+  end
+
+  def choice1(choice)
+    case choice
+    when 1
+      list_all_books(@books)
+    when 2
+      list_music_albums(@music_albums)
+    when 3
+      list_all_games(@games)
+    when 4
+      list_all_genres(@genres)
+    when 5
+      list_all_labels(@labels)
+    when 6
+      list_all_authors(@authors)
+    end
+  end
+
+  def choice2(choice)
+    case choice
+    when 7
+      @books.push(add_book)
+    when 8
+      @music_albums.push(add_music_album)
+    when 9
+      @games.push(add_game)
+    when 10
+      exit_program
+    end
+  end
+
+  def options(choice)
+    case choice
+    when 1..6
+      choice1(choice)
+    when 7..10
+      choice2(choice)
+    else
+      puts 'Invalid choice'
     end
   end
 
