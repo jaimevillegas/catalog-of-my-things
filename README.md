@@ -40,6 +40,7 @@
 - Add a Game
 
 The data of the user will be preserved .
+
 ## 🛠 Built With <a name="built-with"></a>
 
 
@@ -83,7 +84,8 @@ The data of the user will be preserved .
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-You can see the live demo [here](link of the video)
+You can watch the presentation video following this link:
+https://drive.google.com/file/d/1r5WDC7r2a1RL5sTA_ZcSQAY7XJKBPax0/view?usp=sharing
 
 <p align="right"><a href="#readme-top">👆</a></p>
 
