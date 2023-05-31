@@ -2,6 +2,7 @@ require_relative '../book'
 require_relative '../label'
 require_relative '../game'
 require_relative '../music_album'
+require_relative '../genre'
 
 module MainMethods
   def list_all_books(books)
@@ -92,12 +93,13 @@ module MainMethods
   end
 
   # create a method for list all the genres
-  def list_genres
-    return 'No genres found' if @genres.empty?
+  def list_genres(genres)
+    return 'No genres found' if genres.empty?
 
-    @genres.each do |genre|
-      puts "ID: #{genre.id}, Name: #{genre.name}"
+    genres.each_with_index do |genre, index|
+      puts "#{index + 1} ID: #{genre.id}, Name: #{genre.name}"
     end
+    puts '------------------'
   end
 
   # create a method for add a music album
@@ -115,5 +117,11 @@ module MainMethods
       puts 'Please enter a valid option'
     end
     MusicAlbum.new(0, publish_date, on_spotify)
+  end
+
+  def add_genre
+    puts 'Please enter the name of the genre'
+    name = gets.chomp
+    Genre.new(name)
   end
 end

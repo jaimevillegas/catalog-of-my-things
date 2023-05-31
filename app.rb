@@ -14,7 +14,7 @@ class App
   def initialize
     @options = [
       'List all books', 'List all Music Albums', 'List all Games', 'List all Genres',
-      'List all Labels', 'List all Authors', 'Add a Book',
+      'List all Labels', 'List all Authors', 'Add a genre', 'Add a Book',
       'Add a Music Album', 'Add a Game', 'Exit'
     ]
 
@@ -44,7 +44,7 @@ class App
     when 3
       list_all_games(@games)
     when 4
-      list_all_genres(@genres)
+      list_genres(@genres)
     when 5
       list_all_labels(@labels)
     when 6
@@ -55,12 +55,14 @@ class App
   def choice2(choice)
     case choice
     when 7
-      @books.push(add_book)
+      @genres.push(add_genre)
     when 8
-      @music_albums.push(add_music_album)
+      @books.push(add_book)
     when 9
-      @games.push(add_game)
+      @music_albums.push(add_music_album)
     when 10
+      @games.push(add_game)
+    when 11
       exit_program
     end
   end
@@ -69,7 +71,7 @@ class App
     case choice
     when 1..6
       choice1(choice)
-    when 7..10
+    when 7..11
       choice2(choice)
     else
       puts 'Invalid choice'
@@ -80,6 +82,7 @@ class App
     puts 'Goodbye!'
     write_books(@books)
     store_music_albums
+    store_genres
     exit
   end
 end

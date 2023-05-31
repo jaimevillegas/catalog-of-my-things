@@ -93,7 +93,7 @@ module DataModule
     data = []
     if File.exist?('./data/genres.json') && !File.empty?('./data/genres.json')
       JSON.parse(File.read('./data/genres.json')).each do |genre|
-        data.push(Genre.new(genre['id'], genre['name']))
+        data.push(Genre.new(genre['name'], genre['id']))
       end
     end
     data
