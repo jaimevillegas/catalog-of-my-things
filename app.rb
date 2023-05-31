@@ -6,6 +6,7 @@ require_relative 'genre'
 require_relative 'label'
 require_relative 'Modules/data_module'
 require_relative 'Modules/main_methods'
+require_relative 'Modules/game_author'
 
 class App
   include DataModule
@@ -15,10 +16,10 @@ class App
     @options = [
       'List all books', 'List all Music Albums', 'List all Games', 'List all Genres',
       'List all Labels', 'List all Authors', 'Add a genre', 'Add a Book',
-      'Add a Music Album', 'Add a Game', 'Exit'
+      'Add a Music Album', 'Add a Game', 'Add an author', 'Exit'
     ]
 
-    @authors = read_authors
+    @game_author = GameAuthor.new
     @books = read_books
     @labels = read_labels
     @genres = load_genres
@@ -42,13 +43,13 @@ class App
     when 2
       list_music_albums(@music_albums)
     when 3
-      list_all_games(@games)
+      @game_author.list_games
     when 4
       list_genres(@genres)
     when 5
       list_all_labels(@labels)
     when 6
-      list_all_authors(@authors)
+      @game_author.list_authors
     end
   end
 
@@ -61,8 +62,10 @@ class App
     when 9
       @music_albums.push(add_music_album)
     when 10
-      @games.push(add_game)
+      @game_author.add_game
     when 11
+      @game_author.add_author
+    when 12
       exit_program
     end
   end
@@ -71,7 +74,7 @@ class App
     case choice
     when 1..6
       choice1(choice)
-    when 7..11
+    when 7..12
       choice2(choice)
     else
       puts 'Invalid choice'

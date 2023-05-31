@@ -44,18 +44,6 @@ module DataModule
     File.write('./Data/labels.json', JSON.pretty_generate(data))
   end
 
-  def read_authors
-    file = './Data/authors.json'
-    data = []
-
-    if File.exist?(file) && !File.empty?(file)
-      JSON.parse(File.read(file)).each do |author|
-        data.push(Author.new(author['first_name'], author['last_name'], author['id']))
-      end
-    end
-    data
-  end
-
   def album_to_hash(album)
     {
       id: album.id,
@@ -72,17 +60,17 @@ module DataModule
   end
 
   def store_music_albums
-    File.write('./data/albums.json', @music_albums.map { |album| album_to_hash(album) }.to_json)
+    File.write('./Data/albums.json', @music_albums.map { |album| album_to_hash(album) }.to_json)
   end
 
   def store_genres
-    File.write('./data/genres.json', @genres.map { |genre| genre_to_hash(genre) }.to_json)
+    File.write('./Data/genres.json', @genres.map { |genre| genre_to_hash(genre) }.to_json)
   end
 
   def load_music_albums
     data = []
-    if File.exist?('./data/albums.json') && !File.empty?('./data/albums.json')
-      JSON.parse(File.read('./data/albums.json')).each do |album|
+    if File.exist?('./Data/albums.json') && !File.empty?('./data/albums.json')
+      JSON.parse(File.read('./Data/albums.json')).each do |album|
         data.push(MusicAlbum.new(album['id'], album['publish_date'], album['on_spotify']))
       end
     end
@@ -91,25 +79,12 @@ module DataModule
 
   def load_genres
     data = []
-    if File.exist?('./data/genres.json') && !File.empty?('./data/genres.json')
-      JSON.parse(File.read('./data/genres.json')).each do |genre|
+    if File.exist?('./Data/genres.json') && !File.empty?('./Data/genres.json')
+      JSON.parse(File.read('./Data/genres.json')).each do |genre|
         data.push(Genre.new(genre['name'], genre['id']))
       end
     end
     data
   end
 
-  def save_data(data, filename)
-    data_array = data.map(&:to_h) # Convert each object to a hash
-    File.write(filename, JSON.generate(data_array))
-  end
-
-  def load_data(filename)
-    if File.exist?(filename)
-      data = File.read(filename)
-      JSON.parse(data)
-    else
-      []
-    end
-  end
 end
