@@ -5,7 +5,7 @@ require_relative '../item'
 describe Author do
   context 'Create instance of Author class' do
     author = Author.new('Johnie', 'Njoroge')
-    item = Item.new('2017-05-09')
+    item = Item.new('2017-05-09', false)
 
     it 'should return instance of Book class' do
       expect(author).to be_instance_of(Author)

@@ -4,6 +4,7 @@ require_relative '../book'
 describe Book do
   before :each do
     @book = Book.new('Publisher', 'Good', '2010-01-01')
+    
   end
 
   describe '#new' do
