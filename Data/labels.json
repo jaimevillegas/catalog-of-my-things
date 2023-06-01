@@ -1,0 +1,8 @@
+[
+  {"id": "1", "title": "Label 1", "color": "green"},
+  {"id": "2", "title": "Music", "color": "red"},
+  {"id": "3", "title": "Game", "color": "blue"},
+  {"id": "4", "title": "Book", "color": "white"},
+  {"id": "5", "title": "Gift", "color": "pink"},
+  {"id": "6", "title": "For Later", "color": "black"}
+]
